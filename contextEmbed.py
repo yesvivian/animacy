@@ -123,7 +123,6 @@ def project_embeddings(embeddings, unit_vectors):
 
     for i in range(num_words):
         for j in range(num_layers):
-            # Project the j-th layer embedding of the i-th word onto the j-th unit vector
             projected_values[i, j] = np.dot(embeddings[i, j], unit_vectors[j])
 
     return projected_values
@@ -206,7 +205,6 @@ for mod in modlist:
     output_unit_vector=f'{mod}_unitVec.txt'
     unitveclist=f'{mod}_unit_vectors'
     with open(output_unit_vector, 'w') as f:
-        #for array in arrays:
         np.savetxt(f, globals()[unitveclist], delimiter='\t', fmt='%f')
         f.write('\n')  
 
