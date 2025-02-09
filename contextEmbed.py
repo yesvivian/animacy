@@ -145,7 +145,7 @@ bert_model = BertModel.from_pretrained('bert-base-uncased')
 
 bert_embed_animal = extract_contextualized(file_animal, bert_model, bert_tokenizer)
 bert_embed_obj = extract_contextualized(file_obj, bert_model, bert_tokenizer)
-#bert_embed_person = extract_contextualized(file_person, bert_model, bert_tokenizer)
+bert_embed_person = extract_contextualized(file_person, bert_model, bert_tokenizer)
 bert_embed_pronoun = extract_contextualized(file_pronoun, bert_model, bert_tokenizer)
 
 
@@ -188,7 +188,7 @@ avg_gpt2_embed_animal = average_embeddings(gpt2_embed_animal_avgByWd)
 avg_gpt2_embed_obj = average_embeddings(gpt2_embed_obj_avgByWd)
 gpt2_unit_vectors= compute_unit_vector(avg_gpt2_embed_animal, avg_gpt2_embed_obj)
 
-# Project embeddings of words in the third file onto unit vectors
+
 gpt2_projected_person = project_embeddings(gpt2_embed_person_avgByWd, gpt2_unit_vectors)
 gpt2_projected_animal = project_embeddings(gpt2_embed_animal_avgByWd, gpt2_unit_vectors)
 gpt2_projected_obj = project_embeddings(gpt2_embed_obj_avgByWd, gpt2_unit_vectors)
